@@ -88,7 +88,7 @@ This is the hardest one. Here's how to get it:
 
 ### Step 2: Download the bot
 ```cmd
-git clone https://github.com/YOUR_USERNAME/dac-inception-bot.git
+git clone https://github.com/becoder321/Dac-bot.git
 cd dac-inception-bot
 ```
 
@@ -124,7 +124,7 @@ brew install python
 
 ### Step 2: Download the bot
 ```bash
-git clone https://github.com/YOUR_USERNAME/dac-inception-bot.git
+git clone https://github.com/becoder321/Dac-bot.git
 cd dac-inception-bot
 ```
 
@@ -160,7 +160,7 @@ sudo yum install python3 python3-pip git -y
 
 ### Step 2: Download the bot
 ```bash
-git clone https://github.com/YOUR_USERNAME/dac-inception-bot.git
+git clone https://github.com/becoder321/Dac-bot.git
 cd dac-inception-bot
 ```
 
@@ -212,7 +212,7 @@ pip install --upgrade pip
 
 ### Step 3: Download the bot
 ```bash
-git clone https://github.com/YOUR_USERNAME/dac-inception-bot.git
+git clone https://github.com/becoder321/Dac-bot.git
 cd dac-inception-bot
 ```
 
@@ -291,15 +291,15 @@ git add dac_bot.py requirements.txt README.md .env.example .gitignore
 # Commit
 git commit -m "Add DAC Inception testnet bot v3"
 
-# Connect to your GitHub repo (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/dac-inception-bot.git
+# Connect to your GitHub repo (replace becoder321)
+git remote add origin https://github.com/becoder321/Dac-bot.git
 
 # Push to GitHub
 git branch -M main
 git push -u origin main
 ```
 
-**4. Done!** Visit `https://github.com/YOUR_USERNAME/dac-inception-bot` to see it live.
+**4. Done!** Visit `https://github.com/becoder321/Dac-bot` to see it live.
 
 ### Updating the bot later:
 ```bash
