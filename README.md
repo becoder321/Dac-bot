@@ -36,13 +36,11 @@
 
 ## Requirements
 
-You need the following installed on your device:
-
 | Requirement | What it is | How to get it |
 |---|---|---|
-| **Python 3.8+** | Programming language the bot runs on | See device setup below |
-| **pip** | Python package installer (comes with Python) | Included with Python |
-| **Git** | Version control tool (for GitHub) | https://git-scm.com/downloads |
+| **Python 3.8+** | Language the bot runs on | See device setup below |
+| **pip** | Python package installer | Included with Python |
+| **Git** | Version control tool | https://git-scm.com/downloads |
 | **A crypto wallet** | MetaMask or any EVM wallet | https://metamask.io |
 | **DAC testnet account** | Account on the DAC Inception site | https://inception.dachain.io |
 
@@ -50,30 +48,26 @@ You need the following installed on your device:
 
 ## Getting Your Credentials
 
-You need 3 values to fill in your `.env` file:
+You need 3 values for your `.env` file:
 
 ### 1. `PRIVATE_KEY` — Your wallet private key
 > ⚠️ **NEVER share this with anyone. Use a fresh testnet-only wallet.**
 
 - **MetaMask**: Click account icon → Account Details → Show Private Key → enter password → copy
-- **Any EVM wallet**: Look for "Export Private Key" in settings
 
 ### 2. `WALLET_ADDRESS` — Your 0x wallet address
-- This is your public wallet address starting with `0x`
-- Visible on MetaMask home screen or any EVM wallet
+- Your public address starting with `0x`
+- Visible on the MetaMask home screen
 
 ### 3. `AUTH_TOKEN` — Your session token from the DAC website
-This is the hardest one. Here's how to get it:
-
-1. Open **https://inception.dachain.io** in Chrome or Firefox and **log in**
+1. Open **https://inception.dachain.io** and log in
 2. Press **F12** to open Developer Tools
 3. Click the **Network** tab
-4. Refresh the page or click anything on the site
-5. Click any request that goes to the DAC API
-6. Look at the **Headers** section → find `Authorization:`
-7. Copy everything **after** `Bearer ` — that's your token
+4. Refresh the page
+5. Click any API request → find the **Authorization** header
+6. Copy everything **after** `Bearer ` — that is your token
 
-> 💡 Tokens expire. If the bot starts getting 401 errors, repeat these steps to get a fresh token and update your `.env` file.
+> 💡 Tokens expire. If the bot gets 401 errors, grab a fresh token and update your `.env`.
 
 ---
 
@@ -84,12 +78,12 @@ This is the hardest one. Here's how to get it:
 2. Download the latest Python 3.x installer
 3. Run it — **tick "Add Python to PATH"** before clicking Install
 4. Open **Command Prompt** (search `cmd` in Start menu)
-5. Verify: `python --version` — should show `Python 3.x.x`
+5. Verify: `python --version`
 
 ### Step 2: Download the bot
 ```cmd
 git clone https://github.com/becoder321/Dac-bot.git
-cd dac-inception-bot
+cd Dac-bot
 ```
 
 ### Step 3: Install dependencies
@@ -103,6 +97,10 @@ copy .env.example .env
 notepad .env
 ```
 Fill in your `PRIVATE_KEY`, `WALLET_ADDRESS`, and `AUTH_TOKEN`, then save.
+
+> 💡 **Cannot see the .env file?** It starts with a dot so Windows hides it by default.
+> Open File Explorer → View → tick **Show hidden items** to make it visible.
+> When renaming `.env.example` to `.env`, click **Yes** if Windows warns about changing the extension.
 
 ### Step 5: Run
 ```cmd
@@ -125,7 +123,7 @@ brew install python
 ### Step 2: Download the bot
 ```bash
 git clone https://github.com/becoder321/Dac-bot.git
-cd dac-inception-bot
+cd Dac-bot
 ```
 
 ### Step 3: Install dependencies
@@ -139,6 +137,9 @@ cp .env.example .env
 nano .env
 ```
 Fill in your credentials. Press `CTRL+X` → `Y` → Enter to save.
+
+> 💡 **Cannot see the .env file in Finder?** Press `CMD + SHIFT + .` to toggle hidden files.
+> Files starting with a dot are hidden by default on macOS.
 
 ### Step 5: Run
 ```bash
@@ -161,7 +162,7 @@ sudo yum install python3 python3-pip git -y
 ### Step 2: Download the bot
 ```bash
 git clone https://github.com/becoder321/Dac-bot.git
-cd dac-inception-bot
+cd Dac-bot
 ```
 
 ### Step 3: Install dependencies
@@ -176,6 +177,8 @@ nano .env
 ```
 Fill in your credentials. Press `CTRL+X` → `Y` → Enter to save.
 
+> 💡 **Cannot see the .env file?** Run `ls -a` in the terminal to show hidden files (those starting with a dot).
+
 ### Step 5: Run (keep alive on VPS with screen)
 ```bash
 # Install screen so bot keeps running after you disconnect
@@ -187,23 +190,22 @@ screen -S dacbot
 # Run the bot
 python3 dac_bot.py
 
-# Detach from screen (bot keeps running): CTRL+A then D
-# Re-attach later: screen -r dacbot
+# Detach (bot keeps running in background): CTRL+A then D
+# Re-attach later:
+screen -r dacbot
 ```
 
 ---
 
 ## Setup — Android (Termux)
 
-Termux lets you run Python scripts directly on your Android phone — no PC needed.
+Termux lets you run the bot directly on your Android phone — no PC needed.
 
 ### Step 1: Install Termux
 - Download from **F-Droid** (recommended): https://f-droid.org/packages/com.termux/
-- Or from Google Play: search "Termux"
-- ⚠️ Do NOT use the old Play Store version — it's outdated. Use F-Droid.
+- ⚠️ Do NOT use the old Play Store version — it is outdated. Use F-Droid.
 
 ### Step 2: Install required packages
-Open Termux and run these one by one:
 ```bash
 pkg update && pkg upgrade -y
 pkg install python git -y
@@ -213,7 +215,7 @@ pip install --upgrade pip
 ### Step 3: Download the bot
 ```bash
 git clone https://github.com/becoder321/Dac-bot.git
-cd dac-inception-bot
+cd Dac-bot
 ```
 
 ### Step 4: Install Python dependencies
@@ -227,25 +229,26 @@ cp .env.example .env
 nano .env
 ```
 Fill in your `PRIVATE_KEY`, `WALLET_ADDRESS`, and `AUTH_TOKEN`.
-- Use volume-down + E to go to end of line in nano
-- Press `CTRL+X` → `Y` → Enter to save
+Press `CTRL+X` → `Y` → Enter to save.
+
+> 💡 **Cannot see the .env file?** Run `ls -a` to list all files including hidden ones.
+> On Android, files starting with a dot are hidden in most file manager apps — use the terminal to access them.
 
 ### Step 6: Keep bot running when phone sleeps
 ```bash
-# Install termux-wake-lock to prevent Android killing the process
+# Prevent Android from killing the process
 termux-wake-lock
 
 # Run the bot
 python dac_bot.py
 ```
 
-> 💡 **Tip for Android**: Go to your phone's battery settings → find Termux → set to "Unrestricted" or "Don't optimize" so Android doesn't kill it in the background.
+> 💡 Go to phone Settings → Battery → find Termux → set to **Unrestricted** or **Don't optimize** so Android does not kill it in the background.
 
 ---
 
 ## How to Run
 
-Once set up, simply run:
 ```bash
 # Windows
 python dac_bot.py
@@ -258,7 +261,7 @@ The bot will:
 1. Connect to the DAC testnet RPC
 2. Show your current QE stats
 3. Claim faucet, open crates, complete directives, claim badges, send TX
-4. Then sit in the background and repeat on schedule
+4. Sit in the background and repeat on schedule
 
 **To stop the bot:** Press `CTRL+C`
 
@@ -268,38 +271,26 @@ The bot will:
 
 ### First time setup:
 
-**1. Create a GitHub account** at https://github.com if you don't have one.
+**1.** Create a GitHub account at https://github.com if you do not have one.
 
-**2. Create a new repository:**
+**2.** Create a new repository:
 - Go to https://github.com/new
-- Name it: `dac-inception-bot`
-- Set to **Public** or **Private** (your choice)
+- Name it: `Dac-bot`
 - Do NOT tick "Add README" — you already have one
 - Click **Create repository**
 
-**3. Upload the bot from your computer:**
+**3.** Upload from your computer:
 ```bash
-# Navigate into the bot folder
-cd dac-inception-bot
-
-# Initialize git (if not already done)
+cd Dac-bot
 git init
-
-# Add all files EXCEPT .env (it's in .gitignore already)
 git add dac_bot.py requirements.txt README.md .env.example .gitignore
-
-# Commit
 git commit -m "Add DAC Inception testnet bot v3"
-
-# Connect to your GitHub repo (replace becoder321)
 git remote add origin https://github.com/becoder321/Dac-bot.git
-
-# Push to GitHub
 git branch -M main
 git push -u origin main
 ```
 
-**4. Done!** Visit `https://github.com/becoder321/Dac-bot` to see it live.
+**4.** Visit https://github.com/becoder321/Dac-bot to see it live.
 
 ### Updating the bot later:
 ```bash
@@ -318,12 +309,11 @@ git push
 | RPC URL | https://rpc-test.dachain.tech |
 | Chain ID | 7776 |
 | Explorer | https://exptest.dachain.tech |
-| Faucet | Via bot (every 8 hours) |
 
-**Add to MetaMask manually:**
+**Add to MetaMask:**
 1. Open MetaMask → Networks → Add Network
 2. Fill in the table above
-3. Save — you're now on the DAC testnet
+3. Save
 
 ---
 
@@ -331,10 +321,10 @@ git push
 
 > 🔴 **Read this before running.**
 
-- **Never put your main wallet private key** in this bot. Create a fresh wallet just for this testnet.
-- **Never commit your `.env` file to GitHub** — the `.gitignore` blocks it automatically, but double-check.
-- **Your `AUTH_TOKEN` expires** — if API calls start failing with 401 errors, grab a fresh one from DevTools.
-- This bot is for **testnet only** — no real funds are at risk if you use a fresh testnet wallet.
+- **Never use your main wallet** — create a fresh wallet just for this testnet
+- **Never commit your `.env` file** — the `.gitignore` blocks it automatically
+- **Your `AUTH_TOKEN` expires** — grab a fresh one from DevTools if you get 401 errors
+- This bot is for **testnet only** — no real funds at risk if you use a fresh wallet
 
 ---
 
@@ -343,11 +333,12 @@ git push
 | Problem | Fix |
 |---|---|
 | `ModuleNotFoundError` | Run `pip install -r requirements.txt` again |
-| `Web3 not connected` | Check your internet connection or try a different RPC URL |
-| `401 Unauthorized` | Your `AUTH_TOKEN` expired — grab a fresh one from DevTools |
-| `Insufficient DACC` | Wait for the faucet to give you DACC, or lower `TX_AMOUNT_WEI` |
-| Bot stops randomly | On VPS use `screen`, on Android enable battery unrestricted for Termux |
-| `JSONDecodeError` | The API returned an error page — check your `AUTH_TOKEN` |
+| `Web3 not connected` | Check internet or try a different RPC URL |
+| `401 Unauthorized` | AUTH_TOKEN expired — grab a fresh one from DevTools |
+| `Insufficient DACC` | Wait for faucet or lower `TX_AMOUNT_WEI` in the bot |
+| Cannot see `.env` file | Windows: View → Show hidden items / macOS: CMD+SHIFT+. / Linux & Termux: run `ls -a` |
+| Bot stops randomly | VPS: use `screen` / Android: set Termux battery to Unrestricted |
+| `JSONDecodeError` | API returned an error page — check your AUTH_TOKEN |
 | Termux: `pkg not found` | Run `pkg update` first then retry |
 | Windows: `python not found` | Reinstall Python and tick "Add to PATH" |
 
@@ -355,4 +346,4 @@ git push
 
 ## Disclaimer
 
-This bot is for educational and personal use on a public testnet. No real funds are involved. Always DYOR (Do Your Own Research). The author is not responsible for any issues arising from use of this bot.
+This bot is for educational and personal use on a public testnet. No real funds are involved. Always DYOR. The author is not responsible for any issues arising from use of this bot.
